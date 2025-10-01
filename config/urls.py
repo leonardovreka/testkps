@@ -21,7 +21,7 @@ urlpatterns = [
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),   #το json file
 
     #paths για tokens
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),   #εδώ είναι το login endpoint
+    path('api/token/', TokenObtainPairView.as_view(), name='tokens_obtain'),   #εδώ είναι το login endpoint
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 

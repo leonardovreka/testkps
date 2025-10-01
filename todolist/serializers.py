@@ -8,13 +8,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth import password_validation
 
 class TodoSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source="owner.username")
+    name = serializers.ReadOnlyField(source="owner.username")
 
     class Meta:
         model = Todo
         fields = [
             'id',
-            'owner',
+            'name',
             'title',
             'description',
             'is_completed',
@@ -22,7 +22,7 @@ class TodoSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
         ]
-        read_only_fields = ['id', 'owner', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'name', 'created_at', 'updated_at']
 
 #registration
 class RegistrationSerializer(serializers.ModelSerializer):
