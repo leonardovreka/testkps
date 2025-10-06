@@ -26,6 +26,10 @@ class TodoSerializer(serializers.ModelSerializer):
 
 #registration
 class RegistrationSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(
+        required=True,
+        validators=[UniqueValidator(queryset=User.objects.all())]
+    )
     email = serializers.EmailField(                                                      #Το γράφω εδώ γτ θέλω να το τσεκάρω κατευθείαν στo field level. Και το
         required=True,                                                                   #django κάνει provide δικό του checker (UniqueValidator)
         validators=[UniqueValidator(queryset=User.objects.all())]                        #αλλιώς θα μπορούσα να το τσεκάρω όπως στο pass manually

@@ -17,7 +17,10 @@ class TodoViewSet(viewsets.ModelViewSet):
 
     # Return only todos for the logged-in user
     def get_queryset(self):
-        return Todo.objects.filter(owner=self.request.user)
+        user = self.request.user
+        if user.is_staff:
+            return Todo.objects.all()
+        return Todo.objects.filter(owner=user)
 
     # Set the owner to the logged-in user when creating
     def perform_create(self, serializer):

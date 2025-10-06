@@ -26,5 +26,5 @@ urlpatterns = [
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
     #register path
-    path('api/register/', RegistrationViewSet.as_view(), name='auth_register'),
+    path('api/register/', RegistrationViewSet.as_view(), name='register'),
 ]
